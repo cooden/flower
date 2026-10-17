@@ -1,7 +1,9 @@
 // ===== 状态管理 =====
 const state = {
-  festivalId: 'valentine',
-  templateId: 'rose',
+  festivalId: 'flower',
+  templateId: 'bouquet',
+  pet: 'none',
+  flower: 'none',
   to: '',
   message: '',
   from: ''
@@ -41,7 +43,6 @@ function renderFestivalTabs() {
   container.querySelectorAll('.festival-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       state.festivalId = tab.dataset.id;
-      // 切换节日时随机选一条祝福语
       const fest = getFestival();
       state.message = fest.messages[Math.floor(Math.random() * fest.messages.length)];
       $('inputMsg').value = state.message;
@@ -71,6 +72,32 @@ function renderTemplateGrid() {
   });
 }
 
+// ===== 渲染萌宠选择 =====
+function renderPetSelector() {
+  const container = $('petSelector');
+  container.querySelectorAll('.pet-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.pet === state.pet);
+    item.addEventListener('click', () => {
+      state.pet = item.dataset.pet;
+      renderPetSelector();
+      renderCard();
+    });
+  });
+}
+
+// ===== 渲染花卉选择 =====
+function renderFlowerSelector() {
+  const container = $('flowerSelector');
+  container.querySelectorAll('.pet-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.flower === state.flower);
+    item.addEventListener('click', () => {
+      state.flower = item.dataset.flower;
+      renderFlowerSelector();
+      renderCard();
+    });
+  });
+}
+
 // ===== 渲染贺卡 =====
 function renderCard() {
   const fest = getFestival();
@@ -80,14 +107,22 @@ function renderCard() {
   const msgText = state.message || fest.messages[0];
   const fromText = state.from ? `—— ${state.from}` : '—— 爱你的我';
 
-  // 判断是否英文祝福语（用于切换字体）
   const isEnglish = /^[a-zA-Z\s\d\W]+$/.test(msgText.trim()) && !/[\u4e00-\u9fa5]/.test(msgText);
   const msgClass = tmpl.fontMsg === 'en' || isEnglish ? 'en' : '';
+
+  // 萌宠
+  const petSvg = PETS[state.pet] || '';
+  const petHtml = petSvg ? `<div class="card-pet">${petSvg}</div>` : '';
+
+  // 花卉装饰
+  const flowerSvg = FLOWERS[state.flower] || '';
+  const flowerHtml = flowerSvg ? `<div class="card-flower">${flowerSvg}</div>` : '';
 
   cardEl.className = `card ${tmpl.className}`;
   cardEl.innerHTML = `
     <div class="card-inner">
       ${tmpl.border ? `<div class="card-border" style="color:${fest.color}">${tmpl.border}</div>` : ''}
+      ${flowerHtml}
       <div class="card-top-ornament">${ORNAMENTS.topOrnament}</div>
       <div class="card-festival">${fest.en}</div>
       <div class="card-to" style="font-family:${getFontFamily(tmpl.fontTo)}">${escapeHtml(toText)}</div>
@@ -96,6 +131,7 @@ function renderCard() {
       <div class="card-divider">${ORNAMENTS.divider}</div>
       <div class="card-from" style="font-family:${getFontFamily(tmpl.fontTo)}">${escapeHtml(fromText)}</div>
       <div class="card-bottom-ornament">${ORNAMENTS.topOrnament}</div>
+      ${petHtml}
     </div>
     ${tmpl.showSeal ? `<div class="wax-seal">${ORNAMENTS.waxSeal}</div>` : ''}
   `;
@@ -116,16 +152,22 @@ function escapeHtml(str) {
 // ===== 随机灵感 =====
 function randomInspiration() {
   const fest = getFestival();
-  // 随机模板
   state.templateId = TEMPLATES[Math.floor(Math.random() * TEMPLATES.length)].id;
-  // 随机祝福语
   state.message = fest.messages[Math.floor(Math.random() * fest.messages.length)];
+  // 随机萌宠
+  const petKeys = Object.keys(PETS);
+  state.pet = petKeys[Math.floor(Math.random() * petKeys.length)];
+  // 随机花卉
+  const flowerKeys = Object.keys(FLOWERS);
+  state.flower = flowerKeys[Math.floor(Math.random() * flowerKeys.length)];
+
   $('inputMsg').value = state.message;
 
   renderTemplateGrid();
+  renderPetSelector();
+  renderFlowerSelector();
   renderCard();
 
-  // 轻微动画
   cardEl.style.transform = 'scale(0.97)';
   setTimeout(() => { cardEl.style.transform = 'scale(1)'; }, 200);
 
@@ -141,11 +183,7 @@ async function downloadCard() {
       scale: 3,
       useCORS: true,
       backgroundColor: null,
-      logging: false,
-      // 确保字体加载完成
-      onclone: (clonedDoc) => {
-        // 强制渲染
-      }
+      logging: false
     });
 
     const link = document.createElement('a');
@@ -184,25 +222,24 @@ function bindEvents() {
 
 // ===== 初始化 =====
 function init() {
-  // 等待字体加载完成后渲染，确保下载时字体正确
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {
       renderCard();
     });
   }
 
-  // 默认填充第一条祝福语
   const fest = getFestival();
   state.message = fest.messages[0];
   $('inputMsg').value = state.message;
 
   renderFestivalTabs();
   renderTemplateGrid();
+  renderPetSelector();
+  renderFlowerSelector();
   renderCard();
   bindEvents();
 }
 
-// 页面加载完成后初始化
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {

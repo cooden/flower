@@ -57,9 +57,37 @@ body::before {
 .app {
   position: relative;
   z-index: 1;
-  max-width: 480px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 16px 16px 40px;
+}
+
+/* 桌面端左右双栏布局 */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .main-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+  }
+  .main-layout .preview-wrap {
+    flex: 0 0 380px;
+    width: 380px;
+    position: sticky;
+    top: 20px;
+  }
+  .main-layout .controls {
+    flex: 1;
+    max-width: 460px;
+    min-width: 360px;
+  }
 }
 
 /* ===== 顶部 ===== */
@@ -337,6 +365,82 @@ body::before {
   font-family: var(--serif-cn);
 }
 
+/* 萌宠 / 花卉选择器 */
+.pet-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.pet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  border: 1px solid rgba(184, 149, 110, 0.4);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  gap: 2px;
+}
+
+.pet-item .pet-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pet-item .pet-name {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--serif-cn);
+}
+
+.pet-item.active {
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-light) 100%);
+  border-color: var(--burgundy);
+  box-shadow: 0 4px 12px -2px rgba(114, 47, 55, 0.3);
+}
+
+.pet-item.active .pet-name {
+  color: var(--cream-light);
+}
+
+/* 贺卡上的萌宠 */
+.card-pet {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  width: 56px;
+  height: 56px;
+  z-index: 4;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  pointer-events: none;
+}
+
+.card-pet svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 贺卡上的花卉装饰 */
+.card-flower {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  width: 60px;
+  height: 70px;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+}
+
+.card-flower svg {
+  width: 100%;
+  height: 100%;
+}
+
 /* 文字输入 */
 .text-input {
   width: 100%;
@@ -554,3 +658,35 @@ body::before {
 .tpl-gold .card-top-ornament,
 .tpl-gold .card-bottom-ornament { color: var(--gold); }
 .tpl-gold .card-message { color: #e8d8b8; }
+
+/* 模板7: 花束粉调 */
+.tpl-bouquet .card-inner {
+  background:
+    radial-gradient(ellipse at 80% 15%, rgba(201, 123, 138, 0.25) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 85%, rgba(232, 197, 192, 0.4) 0%, transparent 45%),
+    linear-gradient(135deg, #fdf2f0 0%, #f5e0dc 100%);
+  color: #6a4a4a;
+}
+
+.tpl-bouquet .card-to { color: #b85a6a; }
+.tpl-bouquet .card-from { color: #c97b8a; }
+.tpl-bouquet .card-festival { color: #c97b8a; }
+.tpl-bouquet .card-top-ornament,
+.tpl-bouquet .card-bottom-ornament,
+.tpl-bouquet .card-divider { color: #c97b8a; opacity: 0.8; }
+
+/* 模板8: 花园绿意 */
+.tpl-garden .card-inner {
+  background:
+    radial-gradient(ellipse at 75% 20%, rgba(122, 154, 106, 0.25) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 80%, rgba(200, 220, 180, 0.4) 0%, transparent 45%),
+    linear-gradient(135deg, #f0f5e8 0%, #dce8d0 100%);
+  color: #4a5a3e;
+}
+
+.tpl-garden .card-to { color: #5a7a4a; }
+.tpl-garden .card-from { color: #7a9a6a; }
+.tpl-garden .card-festival { color: #6a8a5a; }
+.tpl-garden .card-top-ornament,
+.tpl-garden .card-bottom-ornament,
+.tpl-garden .card-divider { color: #7a9a6a; opacity: 0.8; }
