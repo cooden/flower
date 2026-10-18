@@ -1,7 +1,7 @@
 // ===== 状态管理 =====
 const state = {
   festivalId: 'flower',
-  templateId: 'bouquet',
+  templateId: 'rose',
   pet: 'none',
   flower: 'none',
   to: '',

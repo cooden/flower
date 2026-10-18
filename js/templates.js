@@ -206,155 +206,20 @@ const ORNAMENTS = {
   </svg>`
 };
 
-// ===== 萌宠 SVG =====
+// ===== 萌宠（PNG 图片） =====
 const PETS = {
   none: null,
-  rabbit: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- 耳朵 -->
-    <ellipse cx="38" cy="22" rx="7" ry="18" fill="#f5ede0" stroke="#c9a989" stroke-width="1.2"/>
-    <ellipse cx="38" cy="24" rx="3.5" ry="12" fill="#f0c5c0"/>
-    <ellipse cx="62" cy="22" rx="7" ry="18" fill="#f5ede0" stroke="#c9a989" stroke-width="1.2"/>
-    <ellipse cx="62" cy="24" rx="3.5" ry="12" fill="#f0c5c0"/>
-    <!-- 头 -->
-    <ellipse cx="50" cy="55" rx="26" ry="24" fill="#f5ede0" stroke="#c9a989" stroke-width="1.2"/>
-    <!-- 脸颊红晕 -->
-    <ellipse cx="34" cy="60" rx="5" ry="3.5" fill="#f0c5c0" opacity="0.7"/>
-    <ellipse cx="66" cy="60" rx="5" ry="3.5" fill="#f0c5c0" opacity="0.7"/>
-    <!-- 眼睛 -->
-    <ellipse cx="42" cy="52" rx="3" ry="4" fill="#3a2f28"/>
-    <ellipse cx="58" cy="52" rx="3" ry="4" fill="#3a2f28"/>
-    <circle cx="43" cy="50" r="1" fill="#fff"/>
-    <circle cx="59" cy="50" r="1" fill="#fff"/>
-    <!-- 鼻子 -->
-    <path d="M48 62 Q50 65 52 62 Z" fill="#e8a0a0"/>
-    <!-- 嘴 -->
-    <path d="M50 65 Q46 70 44 67" stroke="#3a2f28" stroke-width="1" fill="none"/>
-    <path d="M50 65 Q54 70 56 67" stroke="#3a2f28" stroke-width="1" fill="none"/>
-    <!-- 胡须 -->
-    <line x1="30" y1="60" x2="22" y2="58" stroke="#c9a989" stroke-width="0.6"/>
-    <line x1="30" y1="63" x2="22" y2="64" stroke="#c9a989" stroke-width="0.6"/>
-    <line x1="70" y1="60" x2="78" y2="58" stroke="#c9a989" stroke-width="0.6"/>
-    <line x1="70" y1="63" x2="78" y2="64" stroke="#c9a989" stroke-width="0.6"/>
-  </svg>`,
-  cat: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- 耳朵 -->
-    <path d="M28 32 L22 12 L40 24 Z" fill="#e8d8c4" stroke="#c9a989" stroke-width="1.2"/>
-    <path d="M72 32 L78 12 L60 24 Z" fill="#e8d8c4" stroke="#c9a989" stroke-width="1.2"/>
-    <path d="M29 28 L26 18 L35 24 Z" fill="#f0c5c0"/>
-    <path d="M71 28 L74 18 L65 24 Z" fill="#f0c5c0"/>
-    <!-- 头 -->
-    <ellipse cx="50" cy="55" rx="27" ry="25" fill="#e8d8c4" stroke="#c9a989" stroke-width="1.2"/>
-    <!-- 脸颊红晕 -->
-    <ellipse cx="33" cy="62" rx="5" ry="3.5" fill="#f0c5c0" opacity="0.7"/>
-    <ellipse cx="67" cy="62" rx="5" ry="3.5" fill="#f0c5c0" opacity="0.7"/>
-    <!-- 眼睛（猫眼） -->
-    <ellipse cx="42" cy="52" rx="3.5" ry="5" fill="#3a2f28"/>
-    <ellipse cx="58" cy="52" rx="3.5" ry="5" fill="#3a2f28"/>
-    <ellipse cx="42" cy="51" rx="1.2" ry="3" fill="#c9a989"/>
-    <ellipse cx="58" cy="51" rx="1.2" ry="3" fill="#c9a989"/>
-    <circle cx="43" cy="49" r="1" fill="#fff"/>
-    <circle cx="59" cy="49" r="1" fill="#fff"/>
-    <!-- 鼻子 -->
-    <path d="M47 63 Q50 66 53 63 L50 67 Z" fill="#e8a0a0"/>
-    <!-- 嘴 -->
-    <path d="M50 67 Q47 71 44 68" stroke="#3a2f28" stroke-width="1" fill="none"/>
-    <path d="M50 67 Q53 71 56 68" stroke="#3a2f28" stroke-width="1" fill="none"/>
-    <!-- 胡须 -->
-    <line x1="30" y1="62" x2="18" y2="59" stroke="#a89580" stroke-width="0.6"/>
-    <line x1="30" y1="65" x2="18" y2="67" stroke="#a89580" stroke-width="0.6"/>
-    <line x1="70" y1="62" x2="82" y2="59" stroke="#a89580" stroke-width="0.6"/>
-    <line x1="70" y1="65" x2="82" y2="67" stroke="#a89580" stroke-width="0.6"/>
-  </svg>`,
-  dog: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- 耳朵（垂耳） -->
-    <ellipse cx="26" cy="42" rx="10" ry="16" fill="#c9a07a" stroke="#a88560" stroke-width="1.2" transform="rotate(-15 26 42)"/>
-    <ellipse cx="74" cy="42" rx="10" ry="16" fill="#c9a07a" stroke="#a88560" stroke-width="1.2" transform="rotate(15 74 42)"/>
-    <!-- 头 -->
-    <ellipse cx="50" cy="55" rx="26" ry="24" fill="#e8d0b0" stroke="#a88560" stroke-width="1.2"/>
-    <!-- 脸颊 -->
-    <ellipse cx="34" cy="62" rx="6" ry="4" fill="#f0c5c0" opacity="0.6"/>
-    <ellipse cx="66" cy="62" rx="6" ry="4" fill="#f0c5c0" opacity="0.6"/>
-    <!-- 眼睛 -->
-    <circle cx="42" cy="52" r="3.5" fill="#3a2f28"/>
-    <circle cx="58" cy="52" r="3.5" fill="#3a2f28"/>
-    <circle cx="43" cy="50" r="1.2" fill="#fff"/>
-    <circle cx="59" cy="50" r="1.2" fill="#fff"/>
-    <!-- 鼻子 -->
-    <ellipse cx="50" cy="63" rx="5" ry="4" fill="#3a2f28"/>
-    <ellipse cx="49" cy="62" rx="1.5" ry="1" fill="#8a7a6b" opacity="0.6"/>
-    <!-- 嘴 -->
-    <path d="M50 67 L50 72" stroke="#3a2f28" stroke-width="1"/>
-    <path d="M50 72 Q45 76 42 73" stroke="#3a2f28" stroke-width="1" fill="none"/>
-    <path d="M50 72 Q55 76 58 73" stroke="#3a2f28" stroke-width="1" fill="none"/>
-    <!-- 舌头 -->
-    <path d="M47 74 Q50 78 53 74 Z" fill="#e8a0a0"/>
-  </svg>`
+  rabbit: `<img src="assets/pet-rabbit.jpg" alt="小兔" />`,
+  cat: `<img src="assets/pet-cat.jpg" alt="小猫" />`,
+  dog: `<img src="assets/pet-dog.jpg" alt="小狗" />`
 };
 
-// ===== 花束 SVG =====
+// ===== 花卉装饰（PNG 图片） =====
 const FLOWERS = {
   none: null,
-  bouquet: `<svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
-    <!-- 包装纸 -->
-    <path d="M30 85 L25 130 L95 130 L90 85 Z" fill="#e8d5c0" opacity="0.8"/>
-    <path d="M30 85 L25 130 L40 130 L42 90 Z" fill="#d4b896" opacity="0.6"/>
-    <path d="M90 85 L95 130 L80 130 L78 90 Z" fill="#d4b896" opacity="0.6"/>
-    <!-- 丝带 -->
-    <path d="M35 88 Q60 95 85 88 L82 95 Q60 100 38 95 Z" fill="#c97b8a"/>
-    <ellipse cx="50" cy="92" rx="6" ry="4" fill="#c97b8a"/>
-    <ellipse cx="70" cy="92" rx="6" ry="4" fill="#c97b8a"/>
-    <!-- 花朵 -->
-    <g>
-      <!-- 玫瑰1 -->
-      <circle cx="45" cy="50" r="12" fill="#d4738a"/>
-      <circle cx="45" cy="50" r="8" fill="#e8909f"/>
-      <circle cx="45" cy="50" r="4" fill="#f0a8b5"/>
-      <!-- 玫瑰2 -->
-      <circle cx="68" cy="42" r="11" fill="#c97b8a"/>
-      <circle cx="68" cy="42" r="7" fill="#e0889a"/>
-      <circle cx="68" cy="42" r="3.5" fill="#f0a8b5"/>
-      <!-- 玫瑰3 -->
-      <circle cx="58" cy="62" r="10" fill="#b8657a"/>
-      <circle cx="58" cy="62" r="6" fill="#d4738a"/>
-      <circle cx="58" cy="62" r="3" fill="#e8909f"/>
-      <!-- 小雏菊 -->
-      <circle cx="35" cy="65" r="6" fill="#faf3e8"/>
-      <circle cx="35" cy="65" r="2.5" fill="#e8c54a"/>
-      <circle cx="80" cy="58" r="5" fill="#faf3e8"/>
-      <circle cx="80" cy="58" r="2" fill="#e8c54a"/>
-      <!-- 叶子 -->
-      <ellipse cx="30" cy="75" rx="5" ry="10" fill="#7a9a6a" transform="rotate(-30 30 75)"/>
-      <ellipse cx="88" cy="72" rx="5" ry="10" fill="#7a9a6a" transform="rotate(30 88 72)"/>
-      <ellipse cx="50" cy="78" rx="4" ry="8" fill="#8aaa7a" transform="rotate(-10 50 78)"/>
-      <ellipse cx="72" cy="76" rx="4" ry="8" fill="#8aaa7a" transform="rotate(15 72 76)"/>
-    </g>
-  </svg>`,
-  tulip: `<svg viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
-    <!-- 茎 -->
-    <path d="M40 50 Q38 80 40 115" stroke="#7a9a6a" stroke-width="3" fill="none"/>
-    <!-- 叶 -->
-    <path d="M40 75 Q20 70 18 90 Q35 90 40 80" fill="#8aaa7a"/>
-    <path d="M40 85 Q60 82 62 100 Q45 100 40 90" fill="#7a9a6a"/>
-    <!-- 郁金香花朵 -->
-    <path d="M40 15 Q20 25 25 50 Q35 55 40 48 Q45 55 55 50 Q60 25 40 15 Z" fill="#e8909f"/>
-    <path d="M40 15 Q32 30 35 48 Q40 42 40 15" fill="#d4738a" opacity="0.5"/>
-  </svg>`,
-  daisy: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g transform="translate(50,50)">
-      <!-- 花瓣 -->
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(45)"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(90)"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(135)"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(180)"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(225)"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(270)"/>
-      <ellipse cx="0" cy="-25" rx="8" ry="16" fill="#faf3e8" stroke="#e0d0b8" stroke-width="0.5" transform="rotate(315)"/>
-      <!-- 花心 -->
-      <circle cx="0" cy="0" r="10" fill="#e8c54a"/>
-      <circle cx="0" cy="0" r="6" fill="#d4a83a"/>
-    </g>
-  </svg>`
+  bouquet: `<img src="assets/flower-bouquet.jpg" alt="花束" />`,
+  tulip: `<img src="assets/flower-tulip.jpg" alt="郁金香" />`,
+  daisy: `<img src="assets/flower-daisy.jpg" alt="雏菊" />`
 };
 
 // ===== 模板配置 =====
@@ -434,6 +299,46 @@ const TEMPLATES = [
     name: '花园绿意',
     className: 'tpl-garden',
     previewBg: 'linear-gradient(135deg, #f0f5e8 0%, #dce8d0 100%)',
+    border: ORNAMENTS.flowerFrame,
+    showSeal: false,
+    fontTo: 'hand',
+    fontMsg: 'cn'
+  },
+  {
+    id: 'lavender',
+    name: '薰衣草紫',
+    className: 'tpl-lavender',
+    previewBg: 'linear-gradient(135deg, #f5f0fa 0%, #e8dff0 100%)',
+    border: ORNAMENTS.ornateFrame,
+    showSeal: false,
+    fontTo: 'hand',
+    fontMsg: 'cn'
+  },
+  {
+    id: 'ocean',
+    name: '海洋蓝调',
+    className: 'tpl-ocean',
+    previewBg: 'linear-gradient(135deg, #eef5fa 0%, #d4e4f0 100%)',
+    border: ORNAMENTS.doubleFrame,
+    showSeal: false,
+    fontTo: 'serif',
+    fontMsg: 'cn'
+  },
+  {
+    id: 'sunset',
+    name: '落日橙霞',
+    className: 'tpl-sunset',
+    previewBg: 'linear-gradient(135deg, #fdf2ec 0%, #f5d8c8 100%)',
+    border: ORNAMENTS.ornateFrame,
+    showSeal: false,
+    fontTo: 'hand',
+    fontMsg: 'cn'
+  },
+  {
+    id: 'sakura',
+    name: '樱花粉雪',
+    className: 'tpl-sakura',
+    previewBg: 'linear-gradient(135deg, #fdf5f8 0%, #f8e4ec 100%)',
     border: ORNAMENTS.flowerFrame,
     showSeal: false,
     fontTo: 'hand',

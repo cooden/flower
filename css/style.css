@@ -410,35 +410,45 @@ body::before {
 /* 贺卡上的萌宠 */
 .card-pet {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
-  width: 56px;
-  height: 56px;
+  bottom: 12px;
+  left: 12px;
+  width: 70px;
+  height: 70px;
   z-index: 4;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
   pointer-events: none;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  background: #fff;
 }
 
-.card-pet svg {
+.card-pet img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* 贺卡上的花卉装饰 */
 .card-flower {
   position: absolute;
-  top: 24px;
-  right: 20px;
-  width: 60px;
-  height: 70px;
+  top: 20px;
+  right: 16px;
+  width: 64px;
+  height: 76px;
   z-index: 4;
   pointer-events: none;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  background: #fff;
 }
 
-.card-flower svg {
+.card-flower img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* 文字输入 */
@@ -690,3 +700,67 @@ body::before {
 .tpl-garden .card-top-ornament,
 .tpl-garden .card-bottom-ornament,
 .tpl-garden .card-divider { color: #7a9a6a; opacity: 0.8; }
+
+/* 模板9: 薰衣草紫 */
+.tpl-lavender .card-inner {
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(150, 120, 180, 0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 25% 80%, rgba(200, 180, 220, 0.35) 0%, transparent 45%),
+    linear-gradient(135deg, #f5f0fa 0%, #e8dff0 100%);
+  color: #4a3e5a;
+}
+
+.tpl-lavender .card-to { color: #7a5a9a; }
+.tpl-lavender .card-from { color: #9a7ab0; }
+.tpl-lavender .card-festival { color: #8a6aa8; }
+.tpl-lavender .card-top-ornament,
+.tpl-lavender .card-bottom-ornament,
+.tpl-lavender .card-divider { color: #9a7ab0; opacity: 0.8; }
+
+/* 模板10: 海洋蓝调 */
+.tpl-ocean .card-inner {
+  background:
+    radial-gradient(ellipse at 75% 15%, rgba(100, 150, 190, 0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 85%, rgba(180, 210, 235, 0.4) 0%, transparent 45%),
+    linear-gradient(135deg, #eef5fa 0%, #d4e4f0 100%);
+  color: #3e4a5a;
+}
+
+.tpl-ocean .card-to { color: #4a6a8a; }
+.tpl-ocean .card-from { color: #5a7a9a; }
+.tpl-ocean .card-festival { color: #5a7a9a; }
+.tpl-ocean .card-top-ornament,
+.tpl-ocean .card-bottom-ornament,
+.tpl-ocean .card-divider { color: #6a8aaa; opacity: 0.8; }
+
+/* 模板11: 落日橙霞 */
+.tpl-sunset .card-inner {
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(220, 150, 100, 0.25) 0%, transparent 45%),
+    radial-gradient(ellipse at 25% 80%, rgba(240, 200, 170, 0.4) 0%, transparent 45%),
+    linear-gradient(135deg, #fdf2ec 0%, #f5d8c8 100%);
+  color: #5a4030;
+}
+
+.tpl-sunset .card-to { color: #c06a3a; }
+.tpl-sunset .card-from { color: #d08050; }
+.tpl-sunset .card-festival { color: #c07040; }
+.tpl-sunset .card-top-ornament,
+.tpl-sunset .card-bottom-ornament,
+.tpl-sunset .card-divider { color: #d08050; opacity: 0.8; }
+
+/* 模板12: 樱花粉雪 */
+.tpl-sakura .card-inner {
+  background:
+    radial-gradient(ellipse at 70% 15%, rgba(230, 160, 180, 0.25) 0%, transparent 45%),
+    radial-gradient(ellipse at 25% 80%, rgba(245, 210, 220, 0.45) 0%, transparent 45%),
+    linear-gradient(135deg, #fdf5f8 0%, #f8e4ec 100%);
+  color: #5a3e48;
+}
+
+.tpl-sakura .card-to { color: #c06a88; }
+.tpl-sakura .card-from { color: #d08098; }
+.tpl-sakura .card-festival { color: #c07088; }
+.tpl-sakura .card-top-ornament,
+.tpl-sakura .card-bottom-ornament,
+.tpl-sakura .card-divider { color: #d08098; opacity: 0.8; }
