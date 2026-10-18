@@ -134,7 +134,7 @@ body::before {
 
 .card {
   width: 100%;
-  max-width: 360px;
+  max-width: 400px;
   aspect-ratio: 3 / 4;
   position: relative;
   border-radius: 4px;
@@ -148,7 +148,7 @@ body::before {
 .card-inner {
   position: absolute;
   inset: 0;
-  padding: 32px 24px;
+  padding: 30px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,16 +158,16 @@ body::before {
 /* 装饰边框层 */
 .card-border {
   position: absolute;
-  inset: 10px;
+  inset: 8px;
   pointer-events: none;
   z-index: 3;
 }
 
 /* 顶部装饰 */
 .card-top-ornament {
-  width: 60%;
-  max-width: 180px;
-  margin: 4px auto 8px;
+  width: 88%;
+  max-width: 320px;
+  margin: 2px auto 6px;
   color: var(--gold);
 }
 
@@ -192,11 +192,11 @@ body::before {
 
 /* 分隔装饰 */
 .card-divider {
-  width: 50px;
-  height: 12px;
+  width: 100px;
+  height: 20px;
   margin: 4px auto;
   color: var(--gold);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 /* 祝福语 */
@@ -231,9 +231,9 @@ body::before {
 
 /* 底部装饰 */
 .card-bottom-ornament {
-  width: 60%;
-  max-width: 180px;
-  margin: 10px auto 0;
+  width: 88%;
+  max-width: 320px;
+  margin: 8px auto 0;
   color: var(--gold);
   transform: rotate(180deg);
 }

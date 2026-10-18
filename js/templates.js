@@ -95,96 +95,284 @@ const FESTIVALS = [
 
 // ===== SVG 装饰元素 =====
 const ORNAMENTS = {
-  // 优雅藤蔓分隔线
-  divider: `<svg viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 8 H38" stroke="currentColor" stroke-width="0.8" fill="none"/>
-    <path d="M62 8 H100" stroke="currentColor" stroke-width="0.8" fill="none"/>
-    <path d="M50 2 Q46 8 50 14 Q54 8 50 2 Z" fill="currentColor" opacity="0.8"/>
-    <circle cx="42" cy="8" r="1" fill="currentColor"/>
-    <circle cx="58" cy="8" r="1" fill="currentColor"/>
+  // 花卉分隔线（加宽，中心花朵）
+  divider: `<svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 10 H70" stroke="currentColor" stroke-width="1" fill="none"/>
+    <path d="M130 10 H200" stroke="currentColor" stroke-width="1" fill="none"/>
+    <path d="M70 10 Q80 4 100 4 Q120 4 130 10" stroke="currentColor" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="10" r="5" fill="currentColor" opacity="0.7"/>
+    <circle cx="100" cy="10" r="2.5" fill="currentColor"/>
+    <circle cx="80" cy="10" r="1.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="120" cy="10" r="1.5" fill="currentColor" opacity="0.6"/>
+    <path d="M85 7 Q88 5 91 7" stroke="currentColor" stroke-width="0.6" fill="none"/>
+    <path d="M109 7 Q112 5 115 7" stroke="currentColor" stroke-width="0.6" fill="none"/>
   </svg>`,
 
-  // 顶部花环装饰
-  topOrnament: `<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100 8 Q60 20 30 12 Q10 8 8 18" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M100 8 Q140 20 170 12 Q190 8 192 18" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M100 8 Q95 18 100 28 Q105 18 100 8" fill="currentColor" opacity="0.6"/>
-    <circle cx="30" cy="12" r="2.5" fill="currentColor"/>
-    <circle cx="170" cy="12" r="2.5" fill="currentColor"/>
-    <circle cx="55" cy="14" r="1.5" fill="currentColor"/>
-    <circle cx="145" cy="14" r="1.5" fill="currentColor"/>
-    <path d="M40 10 L42 13 L45 11" stroke="currentColor" stroke-width="0.6" fill="none"/>
-    <path d="M160 10 L158 13 L155 11" stroke="currentColor" stroke-width="0.6" fill="none"/>
+  // 顶部花卉装饰（加宽，含叶子和花朵）
+  topOrnament: `<svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
+    <!-- 中央主花 -->
+    <g transform="translate(140,25)">
+      <circle cx="0" cy="0" r="9" fill="currentColor" opacity="0.5"/>
+      <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.8"/>
+      <circle cx="0" cy="0" r="2" fill="currentColor"/>
+      <!-- 花瓣 -->
+      <ellipse cx="0" cy="-8" rx="3" ry="5" fill="currentColor" opacity="0.4"/>
+      <ellipse cx="0" cy="8" rx="3" ry="5" fill="currentColor" opacity="0.4"/>
+      <ellipse cx="-8" cy="0" rx="5" ry="3" fill="currentColor" opacity="0.4"/>
+      <ellipse cx="8" cy="0" rx="5" ry="3" fill="currentColor" opacity="0.4"/>
+    </g>
+    <!-- 左侧藤蔓 -->
+    <path d="M140 25 Q100 10 50 18 Q20 22 8 14" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    <path d="M140 25 Q100 38 50 30 Q20 26 8 34" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    <!-- 右侧藤蔓 -->
+    <path d="M140 25 Q180 10 230 18 Q260 22 272 14" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    <path d="M140 25 Q180 38 230 30 Q260 26 272 34" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    <!-- 左侧花朵 -->
+    <circle cx="50" cy="18" r="5" fill="currentColor" opacity="0.6"/>
+    <circle cx="50" cy="18" r="2.5" fill="currentColor"/>
+    <circle cx="8" cy="14" r="3" fill="currentColor" opacity="0.5"/>
+    <circle cx="8" cy="34" r="3" fill="currentColor" opacity="0.5"/>
+    <!-- 右侧花朵 -->
+    <circle cx="230" cy="18" r="5" fill="currentColor" opacity="0.6"/>
+    <circle cx="230" cy="18" r="2.5" fill="currentColor"/>
+    <circle cx="272" cy="14" r="3" fill="currentColor" opacity="0.5"/>
+    <circle cx="272" cy="34" r="3" fill="currentColor" opacity="0.5"/>
+    <!-- 叶子 -->
+    <ellipse cx="90" cy="14" rx="6" ry="3" fill="currentColor" opacity="0.3" transform="rotate(-20 90 14)"/>
+    <ellipse cx="190" cy="14" rx="6" ry="3" fill="currentColor" opacity="0.3" transform="rotate(20 190 14)"/>
+    <ellipse cx="90" cy="36" rx="6" ry="3" fill="currentColor" opacity="0.3" transform="rotate(20 90 36)"/>
+    <ellipse cx="190" cy="36" rx="6" ry="3" fill="currentColor" opacity="0.3" transform="rotate(-20 190 36)"/>
   </svg>`,
 
-  // 四角边框装饰
+  // 豪华花卉边框（四角花簇+点状藤蔓边+中部花饰）
+  richFrame: `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <!-- 外框双线 -->
+    <rect x="8" y="8" width="284" height="384" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+    <rect x="14" y="14" width="272" height="372" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+    <!-- 顶部点状藤蔓 -->
+    <path d="M30 20 L270 20" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5"/>
+    <!-- 底部点状藤蔓 -->
+    <path d="M30 380 L270 380" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5"/>
+    <!-- 左侧点状藤蔓 -->
+    <path d="M20 30 L20 370" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5"/>
+    <!-- 右侧点状藤蔓 -->
+    <path d="M280 30 L280 370" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5"/>
+    <!-- 左上角花簇 -->
+    <g transform="translate(22,22)">
+      <circle cx="0" cy="0" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="8" cy="-4" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="-4" cy="8" r="4.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="0" cy="0" r="3" fill="currentColor"/>
+      <path d="M6 6 Q12 14 8 22" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+      <ellipse cx="12" cy="16" rx="3" ry="6" fill="currentColor" opacity="0.3" transform="rotate(30 12 16)"/>
+    </g>
+    <!-- 右上角花簇 -->
+    <g transform="translate(278,22) scale(-1,1)">
+      <circle cx="0" cy="0" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="8" cy="-4" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="-4" cy="8" r="4.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="0" cy="0" r="3" fill="currentColor"/>
+      <path d="M6 6 Q12 14 8 22" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+      <ellipse cx="12" cy="16" rx="3" ry="6" fill="currentColor" opacity="0.3" transform="rotate(30 12 16)"/>
+    </g>
+    <!-- 左下角花簇 -->
+    <g transform="translate(22,378) scale(1,-1)">
+      <circle cx="0" cy="0" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="8" cy="-4" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="-4" cy="8" r="4.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="0" cy="0" r="3" fill="currentColor"/>
+      <path d="M6 6 Q12 14 8 22" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+    </g>
+    <!-- 右下角花簇 -->
+    <g transform="translate(278,378) scale(-1,-1)">
+      <circle cx="0" cy="0" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="8" cy="-4" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="-4" cy="8" r="4.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="0" cy="0" r="3" fill="currentColor"/>
+      <path d="M6 6 Q12 14 8 22" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+    </g>
+    <!-- 顶边中部花饰 -->
+    <g transform="translate(150,20)">
+      <circle cx="0" cy="0" r="4" fill="currentColor" opacity="0.6"/>
+      <circle cx="0" cy="0" r="2" fill="currentColor"/>
+      <circle cx="-10" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+      <circle cx="10" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+    </g>
+    <!-- 底边中部花饰 -->
+    <g transform="translate(150,380)">
+      <circle cx="0" cy="0" r="4" fill="currentColor" opacity="0.6"/>
+      <circle cx="0" cy="0" r="2" fill="currentColor"/>
+      <circle cx="-10" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+      <circle cx="10" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+    </g>
+    <!-- 左边中部花饰 -->
+    <g transform="translate(20,200)">
+      <circle cx="0" cy="0" r="3.5" fill="currentColor" opacity="0.6"/>
+      <circle cx="0" cy="0" r="1.8" fill="currentColor"/>
+    </g>
+    <!-- 右边中部花饰 -->
+    <g transform="translate(280,200)">
+      <circle cx="0" cy="0" r="3.5" fill="currentColor" opacity="0.6"/>
+      <circle cx="0" cy="0" r="1.8" fill="currentColor"/>
+    </g>
+  </svg>`,
+
+  // 四角边框装饰（增强版）
   corners: `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M8 50 Q8 8 50 8" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M14 50 Q14 14 50 14" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
-    <circle cx="30" cy="30" r="2" fill="currentColor" opacity="0.7"/>
-    <path d="M24 24 L28 28 M36 24 L32 28" stroke="currentColor" stroke-width="0.5"/>
-    <path d="M292 50 Q292 8 250 8" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M286 50 Q286 14 250 14" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
-    <circle cx="270" cy="30" r="2" fill="currentColor" opacity="0.7"/>
-    <path d="M8 350 Q8 392 50 392" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M14 350 Q14 386 50 386" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
-    <circle cx="30" cy="370" r="2" fill="currentColor" opacity="0.7"/>
-    <path d="M292 350 Q292 392 250 392" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M286 350 Q286 386 250 386" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
-    <circle cx="270" cy="370" r="2" fill="currentColor" opacity="0.7"/>
+    <rect x="10" y="10" width="280" height="380" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <rect x="16" y="16" width="268" height="368" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+    <!-- 左上角 -->
+    <g transform="translate(16,16)">
+      <path d="M0 40 Q0 0 40 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M0 32 Q0 8 32 8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.6"/>
+      <circle cx="20" cy="20" r="2" fill="currentColor"/>
+      <path d="M14 14 L18 18 M26 14 L22 18" stroke="currentColor" stroke-width="0.8"/>
+      <path d="M8 40 Q4 44 8 48" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M40 8 Q44 4 48 8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
+    </g>
+    <!-- 右上角 -->
+    <g transform="translate(284,16) scale(-1,1)">
+      <path d="M0 40 Q0 0 40 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M0 32 Q0 8 32 8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.6"/>
+      <circle cx="20" cy="20" r="2" fill="currentColor"/>
+      <path d="M14 14 L18 18 M26 14 L22 18" stroke="currentColor" stroke-width="0.8"/>
+      <path d="M8 40 Q4 44 8 48" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path d="M40 8 Q44 4 48 8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
+    </g>
+    <!-- 左下角 -->
+    <g transform="translate(16,384) scale(1,-1)">
+      <path d="M0 40 Q0 0 40 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M0 32 Q0 8 32 8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.6"/>
+      <circle cx="20" cy="20" r="2" fill="currentColor"/>
+      <path d="M14 14 L18 18 M26 14 L22 18" stroke="currentColor" stroke-width="0.8"/>
+    </g>
+    <!-- 右下角 -->
+    <g transform="translate(284,384) scale(-1,-1)">
+      <path d="M0 40 Q0 0 40 0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M0 32 Q0 8 32 8" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.6"/>
+      <circle cx="20" cy="20" r="2" fill="currentColor"/>
+      <path d="M14 14 L18 18 M26 14 L22 18" stroke="currentColor" stroke-width="0.8"/>
+    </g>
+    <!-- 四边中点小装饰 -->
+    <circle cx="150" cy="16" r="2.5" fill="currentColor" opacity="0.5"/>
+    <circle cx="150" cy="384" r="2.5" fill="currentColor" opacity="0.5"/>
+    <circle cx="16" cy="200" r="2.5" fill="currentColor" opacity="0.5"/>
+    <circle cx="284" cy="200" r="2.5" fill="currentColor" opacity="0.5"/>
   </svg>`,
 
-  // 经典双边框
+  // 经典双边框（加点状装饰）
   doubleFrame: `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <rect x="6" y="6" width="288" height="388" fill="none" stroke="currentColor" stroke-width="0.8"/>
-    <rect x="12" y="12" width="276" height="376" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.6"/>
+    <rect x="6" y="6" width="288" height="388" fill="none" stroke="currentColor" stroke-width="1"/>
+    <rect x="14" y="14" width="272" height="372" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+    <!-- 四角小花 -->
+    <circle cx="10" cy="10" r="3" fill="currentColor" opacity="0.6"/>
+    <circle cx="290" cy="10" r="3" fill="currentColor" opacity="0.6"/>
+    <circle cx="10" cy="390" r="3" fill="currentColor" opacity="0.6"/>
+    <circle cx="290" cy="390" r="3" fill="currentColor" opacity="0.6"/>
+    <!-- 中点花饰 -->
+    <circle cx="150" cy="10" r="2.5" fill="currentColor" opacity="0.5"/>
+    <circle cx="150" cy="390" r="2.5" fill="currentColor" opacity="0.5"/>
   </svg>`,
 
-  // 花纹边框（带卷草纹）
+  // 花纹边框（带卷草纹，增强版）
   ornateFrame: `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <rect x="10" y="10" width="280" height="380" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
-    <path d="M60 18 Q70 10 80 18 Q90 26 100 18 Q110 10 120 18 Q130 26 140 18 Q150 10 160 18 Q170 26 180 18 Q190 10 200 18 Q210 26 220 18 Q230 10 240 18" stroke="currentColor" stroke-width="0.8" fill="none"/>
-    <path d="M60 382 Q70 390 80 382 Q90 374 100 382 Q110 390 120 382 Q130 374 140 382 Q150 390 160 382 Q170 374 180 382 Q190 390 200 382 Q210 374 220 382 Q230 390 240 382" stroke="currentColor" stroke-width="0.8" fill="none"/>
-    <circle cx="16" cy="200" r="2" fill="currentColor" opacity="0.6"/>
-    <circle cx="16" cy="120" r="1.5" fill="currentColor" opacity="0.5"/>
-    <circle cx="16" cy="280" r="1.5" fill="currentColor" opacity="0.5"/>
-    <circle cx="284" cy="200" r="2" fill="currentColor" opacity="0.6"/>
-    <circle cx="284" cy="120" r="1.5" fill="currentColor" opacity="0.5"/>
-    <circle cx="284" cy="280" r="1.5" fill="currentColor" opacity="0.5"/>
+    <rect x="10" y="10" width="280" height="380" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    <rect x="16" y="16" width="268" height="368" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+    <!-- 顶部卷草纹 -->
+    <path d="M40 18 Q50 10 60 18 Q70 26 80 18 Q90 10 100 18 Q110 26 120 18 Q130 10 140 18 Q150 26 160 18 Q170 10 180 18 Q190 26 200 18 Q210 10 220 18 Q230 26 240 18 Q250 10 260 18" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.8"/>
+    <!-- 底部卷草纹 -->
+    <path d="M40 382 Q50 390 60 382 Q70 374 80 382 Q90 390 100 382 Q110 374 120 382 Q130 390 140 382 Q150 374 160 382 Q170 390 180 382 Q190 374 200 382 Q210 390 220 382 Q230 374 240 382 Q250 390 260 382" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.8"/>
+    <!-- 左侧卷草纹 -->
+    <path d="M18 60 Q10 70 18 80 Q26 90 18 100 Q10 110 18 120 Q26 130 18 140 Q10 150 18 160 Q26 170 18 180 Q10 190 18 200 Q26 210 18 220 Q10 230 18 240 Q26 250 18 260 Q10 270 18 280 Q26 290 18 300 Q10 310 18 320 Q26 330 18 340" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.8"/>
+    <!-- 右侧卷草纹 -->
+    <path d="M282 60 Q290 70 282 80 Q274 90 282 100 Q290 110 282 120 Q274 130 282 140 Q290 150 282 160 Q274 170 282 180 Q290 190 282 200 Q274 210 282 220 Q290 230 282 240 Q274 250 282 260 Q290 270 282 280 Q274 290 282 300 Q290 310 282 320 Q274 330 282 340" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.8"/>
+    <!-- 四角花簇 -->
+    <g transform="translate(16,16)">
+      <circle cx="6" cy="6" r="5" fill="currentColor" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="currentColor"/>
+    </g>
+    <g transform="translate(284,16) scale(-1,1)">
+      <circle cx="6" cy="6" r="5" fill="currentColor" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="currentColor"/>
+    </g>
+    <g transform="translate(16,384) scale(1,-1)">
+      <circle cx="6" cy="6" r="5" fill="currentColor" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="currentColor"/>
+    </g>
+    <g transform="translate(284,384) scale(-1,-1)">
+      <circle cx="6" cy="6" r="5" fill="currentColor" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="currentColor"/>
+    </g>
+    <!-- 四边中点花饰 -->
+    <circle cx="150" cy="16" r="3" fill="currentColor" opacity="0.5"/>
+    <circle cx="150" cy="384" r="3" fill="currentColor" opacity="0.5"/>
   </svg>`,
 
-  // 花卉边框（插花主题）
+  // 花卉边框（插花主题，增强版）
   flowerFrame: `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <rect x="8" y="8" width="284" height="384" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+    <rect x="8" y="8" width="284" height="384" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <rect x="14" y="14" width="272" height="372" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.3"/>
+    <!-- 点状藤蔓边 -->
+    <path d="M30 16 L270 16" stroke="currentColor" stroke-width="0.6" stroke-dasharray="1.5 3" opacity="0.5"/>
+    <path d="M30 384 L270 384" stroke="currentColor" stroke-width="0.6" stroke-dasharray="1.5 3" opacity="0.5"/>
+    <path d="M16 30 L16 370" stroke="currentColor" stroke-width="0.6" stroke-dasharray="1.5 3" opacity="0.5"/>
+    <path d="M284 30 L284 370" stroke="currentColor" stroke-width="0.6" stroke-dasharray="1.5 3" opacity="0.5"/>
     <!-- 左上角花束 -->
-    <g transform="translate(12,12)">
-      <circle cx="10" cy="10" r="5" fill="currentColor" opacity="0.5"/>
-      <circle cx="16" cy="6" r="4" fill="currentColor" opacity="0.4"/>
-      <circle cx="6" cy="16" r="3.5" fill="currentColor" opacity="0.4"/>
-      <path d="M10 15 Q14 25 10 35" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
-      <ellipse cx="14" cy="28" rx="3" ry="5" fill="currentColor" opacity="0.3" transform="rotate(30 14 28)"/>
+    <g transform="translate(14,14)">
+      <circle cx="10" cy="10" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="18" cy="5" r="5.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="5" cy="18" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="10" cy="10" r="3.5" fill="currentColor" opacity="0.8"/>
+      <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+      <path d="M14 16 Q20 28 14 40" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+      <ellipse cx="18" cy="30" rx="4" ry="7" fill="currentColor" opacity="0.3" transform="rotate(30 18 30)"/>
+      <path d="M6 20 Q2 26 6 32" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/>
     </g>
     <!-- 右上角花束 -->
-    <g transform="translate(288,12) scale(-1,1)">
-      <circle cx="10" cy="10" r="5" fill="currentColor" opacity="0.5"/>
-      <circle cx="16" cy="6" r="4" fill="currentColor" opacity="0.4"/>
-      <circle cx="6" cy="16" r="3.5" fill="currentColor" opacity="0.4"/>
-      <path d="M10 15 Q14 25 10 35" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
-      <ellipse cx="14" cy="28" rx="3" ry="5" fill="currentColor" opacity="0.3" transform="rotate(30 14 28)"/>
+    <g transform="translate(286,14) scale(-1,1)">
+      <circle cx="10" cy="10" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="18" cy="5" r="5.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="5" cy="18" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="10" cy="10" r="3.5" fill="currentColor" opacity="0.8"/>
+      <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+      <path d="M14 16 Q20 28 14 40" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+      <ellipse cx="18" cy="30" rx="4" ry="7" fill="currentColor" opacity="0.3" transform="rotate(30 18 30)"/>
     </g>
     <!-- 左下角花束 -->
-    <g transform="translate(12,388) scale(1,-1)">
-      <circle cx="10" cy="10" r="5" fill="currentColor" opacity="0.5"/>
-      <circle cx="16" cy="6" r="4" fill="currentColor" opacity="0.4"/>
-      <circle cx="6" cy="16" r="3.5" fill="currentColor" opacity="0.4"/>
-      <path d="M10 15 Q14 25 10 35" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <g transform="translate(14,386) scale(1,-1)">
+      <circle cx="10" cy="10" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="18" cy="5" r="5.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="5" cy="18" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="10" cy="10" r="3.5" fill="currentColor" opacity="0.8"/>
+      <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+      <path d="M14 16 Q20 28 14 40" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
     </g>
     <!-- 右下角花束 -->
-    <g transform="translate(288,388) scale(-1,-1)">
-      <circle cx="10" cy="10" r="5" fill="currentColor" opacity="0.5"/>
-      <circle cx="16" cy="6" r="4" fill="currentColor" opacity="0.4"/>
-      <circle cx="6" cy="16" r="3.5" fill="currentColor" opacity="0.4"/>
-      <path d="M10 15 Q14 25 10 35" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <g transform="translate(286,386) scale(-1,-1)">
+      <circle cx="10" cy="10" r="7" fill="currentColor" opacity="0.5"/>
+      <circle cx="18" cy="5" r="5.5" fill="currentColor" opacity="0.4"/>
+      <circle cx="5" cy="18" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="10" cy="10" r="3.5" fill="currentColor" opacity="0.8"/>
+      <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+      <path d="M14 16 Q20 28 14 40" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+    </g>
+    <!-- 顶边中央花饰 -->
+    <g transform="translate(150,16)">
+      <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.5"/>
+      <circle cx="0" cy="0" r="2.5" fill="currentColor"/>
+      <circle cx="-8" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+      <circle cx="8" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+    </g>
+    <!-- 底边中央花饰 -->
+    <g transform="translate(150,384)">
+      <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.5"/>
+      <circle cx="0" cy="0" r="2.5" fill="currentColor"/>
+      <circle cx="-8" cy="0" r="2" fill="currentColor" opacity="0.4"/>
+      <circle cx="8" cy="0" r="2" fill="currentColor" opacity="0.4"/>
     </g>
   </svg>`,
 
@@ -229,7 +417,7 @@ const TEMPLATES = [
     name: '法式玫瑰',
     className: 'tpl-rose',
     previewBg: 'linear-gradient(135deg, #faf3e8 0%, #f5e6d3 100%)',
-    border: ORNAMENTS.ornateFrame,
+    border: ORNAMENTS.richFrame,
     showSeal: false,
     fontTo: 'hand',
     fontMsg: 'cn'
@@ -239,7 +427,7 @@ const TEMPLATES = [
     name: '英伦墨绿',
     className: 'tpl-emerald',
     previewBg: 'linear-gradient(135deg, #2d4a3e 0%, #1e3329 100%)',
-    border: ORNAMENTS.doubleFrame,
+    border: ORNAMENTS.richFrame,
     showSeal: true,
     fontTo: 'hand',
     fontMsg: 'cn'
@@ -249,7 +437,7 @@ const TEMPLATES = [
     name: '宫廷酒红',
     className: 'tpl-burgundy',
     previewBg: 'linear-gradient(135deg, #5a1f2a 0%, #722f37 100%)',
-    border: ORNAMENTS.corners,
+    border: ORNAMENTS.richFrame,
     showSeal: true,
     fontTo: 'hand',
     fontMsg: 'cn'
@@ -269,7 +457,7 @@ const TEMPLATES = [
     name: '春日花田',
     className: 'tpl-spring',
     previewBg: 'linear-gradient(160deg, #fdf6f0 0%, #f0e4d8 100%)',
-    border: ORNAMENTS.ornateFrame,
+    border: ORNAMENTS.richFrame,
     showSeal: false,
     fontTo: 'hand',
     fontMsg: 'cn'
@@ -279,7 +467,7 @@ const TEMPLATES = [
     name: '金箔夜宴',
     className: 'tpl-gold',
     previewBg: 'linear-gradient(135deg, #1a1a1a 0%, #2a2218 100%)',
-    border: ORNAMENTS.corners,
+    border: ORNAMENTS.richFrame,
     showSeal: true,
     fontTo: 'serif',
     fontMsg: 'en'
@@ -309,7 +497,7 @@ const TEMPLATES = [
     name: '薰衣草紫',
     className: 'tpl-lavender',
     previewBg: 'linear-gradient(135deg, #f5f0fa 0%, #e8dff0 100%)',
-    border: ORNAMENTS.ornateFrame,
+    border: ORNAMENTS.richFrame,
     showSeal: false,
     fontTo: 'hand',
     fontMsg: 'cn'
@@ -329,7 +517,7 @@ const TEMPLATES = [
     name: '落日橙霞',
     className: 'tpl-sunset',
     previewBg: 'linear-gradient(135deg, #fdf2ec 0%, #f5d8c8 100%)',
-    border: ORNAMENTS.ornateFrame,
+    border: ORNAMENTS.richFrame,
     showSeal: false,
     fontTo: 'hand',
     fontMsg: 'cn'
