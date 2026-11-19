@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5e6d3"/>
+      <stop offset="100%" stop-color="#e8d4bc"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9e3a3a"/>
+      <stop offset="100%" stop-color="#722f37"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c9a989"/>
+      <stop offset="100%" stop-color="#a88560"/>
+    </linearGradient>
+  </defs>
+  <!-- 背景圆 -->
+  <circle cx="32" cy="32" r="30" fill="url(#bg)" stroke="url(#gold)" stroke-width="2"/>
+  <!-- 外层卷草纹环 -->
+  <circle cx="32" cy="32" r="25" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.7"/>
+  <!-- 中央玫瑰：外层花瓣 -->
+  <g transform="translate(32 32)">
+    <circle cx="0" cy="0" r="15" fill="url(#rose)" opacity="0.85"/>
+    <ellipse cx="0" cy="-11" rx="6" ry="9" fill="url(#rose)" opacity="0.9"/>
+    <ellipse cx="0" cy="11" rx="6" ry="9" fill="url(#rose)" opacity="0.9"/>
+    <ellipse cx="-11" cy="0" rx="9" ry="6" fill="url(#rose)" opacity="0.9"/>
+    <ellipse cx="11" cy="0" rx="9" ry="6" fill="url(#rose)" opacity="0.9"/>
+    <!-- 中层花瓣 -->
+    <circle cx="0" cy="0" r="9" fill="url(#rose)"/>
+    <!-- 花心螺旋 -->
+    <path d="M0 0 Q4 -2 4 2 Q4 6 0 6 Q-4 6 -4 2 Q-4 -2 0 -2 Q2 -2 3 0" fill="none" stroke="#f5ede0" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/>
+  </g>
+  <!-- 顶部小装饰叶 -->
+  <path d="M32 7 Q30 3 32 2 Q34 3 32 7" fill="url(#gold)" opacity="0.8"/>
+  <path d="M32 57 Q30 61 32 62 Q34 61 32 57" fill="url(#gold)" opacity="0.8"/>
+</svg>
