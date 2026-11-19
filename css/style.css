@@ -97,34 +97,6 @@ body::before {
   color: var(--burgundy);
 }
 
-/* 万张品牌 logo */
-.brand-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.brand-emblem {
-  width: 44px;
-  height: 44px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(114, 47, 55, 0.18);
-}
-
-.brand-name {
-  font-family: var(--serif-cn);
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  background: linear-gradient(135deg, var(--burgundy) 0%, var(--rose-gold-dark) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .ornament-line {
   width: 160px;
   height: 18px;
