@@ -54,6 +54,18 @@ body::before {
   z-index: 0;
 }
 
+/* Three.js 背景微光粒子层 */
+#three-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#three-bg canvas {
+  display: block;
+}
+
 .app {
   position: relative;
   z-index: 1;
@@ -168,9 +180,23 @@ body::before {
   border-radius: 4px;
   overflow: hidden;
   box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.55),
+    inset 0 -2px 8px rgba(90, 31, 42, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25),
     0 20px 50px -15px rgba(114, 47, 55, 0.25),
     0 8px 20px -8px rgba(0, 0, 0, 0.12);
   transition: transform 0.4s ease;
+}
+
+/* 纸张内侧压纹（边缘暗角，增强立体层次） */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 4px;
+  box-shadow: inset 0 0 28px rgba(114, 47, 55, 0.12);
+  z-index: 5;
 }
 
 .card-inner {
@@ -189,6 +215,7 @@ body::before {
   inset: 8px;
   pointer-events: none;
   z-index: 3;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55)) drop-shadow(0 2px 3px rgba(90, 31, 42, 0.32));
 }
 
 /* 顶部装饰 */
@@ -197,6 +224,7 @@ body::before {
   max-width: 320px;
   margin: 2px auto 6px;
   color: var(--gold);
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5)) drop-shadow(0 1px 2px rgba(90, 31, 42, 0.28));
 }
 
 /* 节日标题 */
@@ -225,6 +253,7 @@ body::before {
   margin: 4px auto;
   color: var(--gold);
   opacity: 0.85;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.45)) drop-shadow(0 1px 2px rgba(90, 31, 42, 0.25));
 }
 
 /* 祝福语 */
@@ -264,6 +293,7 @@ body::before {
   margin: 8px auto 0;
   color: var(--gold);
   transform: rotate(180deg);
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5)) drop-shadow(0 1px 2px rgba(90, 31, 42, 0.28));
 }
 
 /* 火漆印章 */
